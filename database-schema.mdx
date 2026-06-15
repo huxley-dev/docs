@@ -1,0 +1,125 @@
+---
+title: "Database Schema"
+---
+
+This page describes the configuration and schema of the Huxley database.
+
+## Technology
+
+Huxley is designed and optimized to use [PostgreSQL](https://postgresql.org). At this stage in development only the latest stable release has been tested.
+
+## Tables
+
+### app\_perms
+
+Application permission definitions.
+
+| Column | Type | PK | FK | Required | Unique | Default |
+| --- | --- | --- | --- | --- | --- | --- |
+| id | UUID | ✅ |  | ✅ | ✅ | gen\_random\_uuid() |
+| name | TEXT |  |  | ✅ | ✅ |  |
+| description | TEXT |  |  |  |  |  |
+| metadata | JSONB |  |  | ✅ |  | {} |
+| is\_active | BOOLEAN |  |  | ✅ |  | true |
+| created\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+| updated\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+
+### app\_roles
+
+Application permission roles definitions.
+
+| Column | Type | PK | FK | Required | Unique | Default |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| id | UUID | ✅ |  | ✅ | ✅ | gen\_random\_uuid() |
+| name | TEXT |  |  | ✅ | ✅ |  |
+| description | TEXT |  |  |  |  |  |
+| metadata | JSONB |  |  | ✅ |  | {} |
+| is\_active | BOOLEAN |  |  | ✅ |  | true |
+| created\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+| updated\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+
+### app\_role\_perms
+
+Application role permission assignments.
+
+### auth\_providers
+
+Authentication providers.
+
+### auth\_configs
+
+Authentication provider configurations.
+
+### git\_providers
+
+Git providers.
+
+### git\_configs
+
+GIt provider configurations.
+
+### orgs
+
+Organizations
+
+### org\_perms
+
+Organization permissions.
+
+### org\_roles
+
+Organization permission roles.
+
+### org\_role\_perms
+
+Organization role permission assignments.
+
+### org\_tags
+
+Organization tag assignments.
+
+### org\_users
+
+Organization user assignments.
+
+### org\_variables
+
+Organization variables.
+
+### tags
+
+Tag definitions to be used across the application.
+
+### users
+
+Users
+
+### user\_auth\_providers
+
+User auth provider assignments.
+
+### workflows
+
+Workflow definitions.
+
+### workflow\_execs
+
+Workflow execution history.
+
+### workflow\_folders
+
+Workflow project folders.
+
+### workflow\_projects
+
+Workflow projects.
+
+### workflow\_revs
+
+Workflow revision history.
+
+### workflow\_tags
+
+Workflow tag assignments.
+
+## Diagram
