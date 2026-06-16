@@ -22,8 +22,8 @@
       {
         "group": "Design",
         "pages": [
-          "environment-variables",
-          "database-schema"
+          "database-schema",
+          "environment-variables"
         ]
       }
     ]
