@@ -3,3 +3,48 @@ title: "Environment Variables"
 ---
 
 This page defines all of the Huxley configuration environment variables.
+
+### General
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| HUXLEY\_DEBUG\_LEVEL | Text | info | Possible values: debug, info, warning, error, fatal |
+| HUXLEY\_PROD\_ENV | Boolean | true | Sets the application to development mode if false |
+
+### UI
+
+| Name | Type | Default | Description |
+| :-- | :-- | :-- | :-- |
+| HUXLEY\_UI\_URL | Text | localhost | Sets the UI service URL (ex: example.com) |
+| HUXLEY\_UI\_PROTOCOL | Text | http | Possible values: http, https |
+| HUXLEY\_UI\_PORT | Number | 4267 | Sets the TCP port for the UI service to listen on |
+
+### PostgreSQL
+
+| Name | Type | Default | Description |
+| :-- | :-- | :-- | :-- |
+| HUXLEY\_DB\_HOST | Text | localhost | PostgreSQL instance hostname |
+| HUXLEY\_DB\_PORT | Number | 5432 | PostgreSQL instance TCP port |
+| HUXLEY\_DB\_USERNAME | Text |  | Username |
+| HUXLEY\_DB\_PASSWORD | Text |  | Password |
+| HUXLEY\_DB\_DATABASE | Text | Huxley | Database name |
+| HUXLEY\_DB\_USE\_TLS | Boolean | True | Set to false to disable use of TLS for database connection |
+| HUXLEY\_DB\_MIN\_CONNECTIONS | Number | 5 | Minimum number of database pool connections to keep alive |
+| HUXLEY\_DB\_MAX\_CONNECTIONS | Number | 20 | Maximum number of database pool connections |
+| HUXLEY\_DB\_IDLE\_TIMEOUT | Number | 600 | Seconds for idle database pool connection to be closed |
+| HUXLEY\_DB\_POOL\_ACQUIRE\_TIMEOUT | Number | 5 | Seconds for database pool connection timeout |
+
+### Redis/ValKey
+
+| Name | Type | Default | Description |
+| :-- | :-- | :-- | :-- |
+| HUXLEY\_REDIS\_HOST | Text | localhost | Redis/ValKey instance hostname |
+| HUXLEY\_REDIS\_PORT | Number | 6379 | Redis/ValKey instance TCP port |
+| HUXLEY\_REDIS\_USERNAME | Text |  | Username |
+| HUXLEY\_REDIS\_PASSWORD | Text |  | Password |
+| HUXLEY\_REDIS\_DB | Number | 0 | Database number |
+| HUXLEY\_REDIS\_USE\_TLS | Boolean | True | Set to false to disable use of TLS for Redis connection |
+| HUXLEY\_REDIS\_TIMEOUT | Number | 10 | Seconds for Redis connection timeout |
+| HUXLEY\_REDIS\_WAIT\_TIMEOUT | Number | 2 | Seconds for Redis wait timeout |
+| HUXLEY\_REDIS\_CREATE\_TIMEOUT | Number | 3 | Seconds for Redis create timeout |
+| HUXLEY\_REDIS\_RECYCLE\_TIMEOUT | Number | 1 | Seconds for Redis recycle timeout |
