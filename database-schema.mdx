@@ -66,13 +66,20 @@ Authentication providers.
 | created\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
 | updated\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
 
-### git\_providers
+### git\_provider\_configs
 
-Git providers.
+Git provider configurations.
 
-### git\_configs
-
-GIt provider configurations.
+| Column | Type | PK | FK | Required | Unique | Default |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| id | UUID | ✅ |  | ✅ | ✅ | gen\_random\_uuid() |
+| name | TEXT |  |  | ✅ | ✅ |  |
+| token | BYTEA |  |  |  |  |  |
+| config | JSONB |  |  | ✅ |  | {} |
+| is\_active | BOOLEAN |  |  | ✅ |  | true |
+| metadata | JSONB |  |  | ✅ |  | {} |
+| created\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+| updated\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
 
 ### orgs
 
@@ -86,6 +93,21 @@ Organizations
 | slug | TEXT |  |  |  |  |  |
 | is\_active | BOOLEAN |  |  | ✅ |  | true |
 | mappings | JSONB |  |  | ✅ |  | {} |
+| metadata | JSONB |  |  | ✅ |  | {} |
+| created\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+| updated\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+
+### org\_credentials
+
+Organization credentials.
+
+| Column | Type | PK | FK | Required | Unique | Default |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| id | UUID | ✅ |  | ✅ | ✅ | gen\_random\_uuid() |
+| org\_id | UUID |  | orgs(id) | ✅ |  |  |
+| name | TEXT |  |  | ✅ |  |  |
+| value | BYTEA |  |  | ✅ |  |  |
+| is\_inheritable | BOOLEAN |  |  | ✅ | ✅ | false |
 | metadata | JSONB |  |  | ✅ |  | {} |
 | created\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
 | updated\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
@@ -135,6 +157,15 @@ Organization role permission assignments.
 
 Organization tag assignments.
 
+| Column | Type | PK | FK | Required | Unique | Default |
+| :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| id | UUID | ✅ |  | ✅ | ✅ | gen\_random\_uuid() |
+| org\_id | UUID |  | orgs(id) | ✅ |  |  |
+| tag\_id | UUID |  | tags(id) | ✅ |  |  |
+| metadata | JSONB |  |  | ✅ |  | {} |
+| created\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+| updated\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
+
 ### org\_users
 
 Organization user assignments.
@@ -160,8 +191,7 @@ Organization variables.
 | var\_type | SMALLINT |  |  | ✅ |  |  |
 | name | TEXT |  |  | ✅ |  |  |
 | value | TEXT |  |  |  |  |  |
-| secret | BYTEA |  |  |  |  |  |
-| is\_default | BOOLEAN |  |  | ✅ | ✅ | false |
+| is\_inheritable | BOOLEAN |  |  | ✅ | ✅ | false |
 | metadata | JSONB |  |  | ✅ |  | {} |
 | created\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
 | updated\_at | TIMESTAMPTZ |  |  | ✅ |  | now() |
@@ -182,7 +212,7 @@ Tag definitions to be used across the application.
 
 ### users
 
-Users.
+Application user accounts.
 
 | Column | Type | PK | FK | Required | Unique | Default |
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
