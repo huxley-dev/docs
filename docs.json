@@ -13,17 +13,9 @@
   },
   "navigation": {
     "pages": [
-      "overview",
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      },
+      "huxley-documentation",
       {
         "group": "Design",
-        "hidden": true,
         "pages": [
           "database-schema",
           "environment-variables"
@@ -39,9 +31,9 @@
   "navbar": {
     "links": [],
     "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "type": "github",
+      "label": "Github",
+      "href": "https://github.com/huxley-dev/huxleygithub.com/huxley-dev/huxley"
     }
   },
   "contextual": {
