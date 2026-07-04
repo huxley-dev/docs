@@ -8,16 +8,17 @@ This page defines all of the Huxley configuration environment variables.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| HUXLEY\_DEBUG\_LEVEL | Text | info | Possible values: debug, info, warning, error, fatal |
-| HUXLEY\_PROD\_ENV | Boolean | true | Sets the application to development mode if false |
+| HUXLEY\_LOG\_LEVEL | Text | info | Possible values: debug, info, warning, error, fatal |
+| HUXLEY\_ENVIRONMENT | Text | production | Sets the application environment |
+| HUXLEY\_ROLES | Text | api,scheduler,worker,reaper | Sets the roles that the process will operate as<br />comma separated string. Possible values: <br />api, scheduler, worker, reaper |
 
 ### UI
 
 | Name | Type | Default | Description |
 | :-- | :-- | :-- | :-- |
-| HUXLEY\_UI\_URL | Text | localhost | Sets the UI service URL (ex: example.com) |
-| HUXLEY\_UI\_PROTOCOL | Text | http | Possible values: http, https |
-| HUXLEY\_UI\_PORT | Number | 4267 | Sets the TCP port for the UI service to listen on |
+| HUXLEY\_URL | Text | localhost | Sets the Huxley URL (ex: example.com) |
+| HUXLEY\_PROTOCOL | Text | http | Possible values: http, https |
+| HUXLEY\_PORT | Number | 4267 | Sets the TCP port for Huxley to listen on |
 
 ### PostgreSQL
 
@@ -38,13 +39,13 @@ This page defines all of the Huxley configuration environment variables.
 
 | Name | Type | Default | Description |
 | :-- | :-- | :-- | :-- |
-| HUXLEY\_REDIS\_HOST | Text | localhost | Redis/ValKey instance hostname |
-| HUXLEY\_REDIS\_PORT | Number | 6379 | Redis/ValKey instance TCP port |
-| HUXLEY\_REDIS\_USERNAME | Text |  | Username |
-| HUXLEY\_REDIS\_PASSWORD | Text |  | Password |
-| HUXLEY\_REDIS\_DB | Number | 0 | Database number |
-| HUXLEY\_REDIS\_USE\_TLS | Boolean | True | Set to false to disable use of TLS for Redis connection |
-| HUXLEY\_REDIS\_TIMEOUT | Number | 10 | Seconds for Redis connection timeout |
-| HUXLEY\_REDIS\_WAIT\_TIMEOUT | Number | 2 | Seconds for Redis wait timeout |
-| HUXLEY\_REDIS\_CREATE\_TIMEOUT | Number | 3 | Seconds for Redis create timeout |
-| HUXLEY\_REDIS\_RECYCLE\_TIMEOUT | Number | 1 | Seconds for Redis recycle timeout |
+| HUXLEY\_CACHE\_HOST | Text | localhost | Redis/ValKey instance hostname |
+| HUXLEY\_CACHE\_PORT | Number | 6379 | Redis/ValKey instance TCP port |
+| HUXLEY\_CACHE\_USERNAME | Text |  | Username |
+| HUXLEY\_CACHE\_PASSWORD | Text |  | Password |
+| HUXLEY\_CACHE\_DB | Number | 0 | Database number |
+| HUXLEY\_CACHE\_USE\_TLS | Boolean | True | Set to false to disable use of TLS for Redis connection |
+| HUXLEY\_CACHE\_TIMEOUT | Number | 10 | Seconds for Redis connection timeout |
+| HUXLEY\_CACHE\_WAIT\_TIMEOUT | Number | 2 | Seconds for Redis wait timeout |
+| HUXLEY\_CACHE\_CREATE\_TIMEOUT | Number | 3 | Seconds for Redis create timeout |
+| HUXLEY\_CACHE\_RECYCLE\_TIMEOUT | Number | 1 | Seconds for Redis recycle timeout |
